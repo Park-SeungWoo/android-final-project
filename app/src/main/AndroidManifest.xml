@@ -21,6 +21,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activities.OrderActivity"
+            android:label="Order" />
+        <activity
+            android:name=".activities.MapActivity"
+            android:label="Map" />
     </application>
 
 </manifest>

@@ -2,7 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-<!--    custom colors-->
-    <color name="layout_background">#F1F1F1</color>
-    <color name="button_background">#DDD</color>
+    <!--    custom colors-->
+    <color name="layout_background">#ede3da</color>
+    <color name="button_background">#e1d0c1</color>
+    <color name="list_item_background">#ede3da</color>
 </resources>

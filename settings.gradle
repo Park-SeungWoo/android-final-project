@@ -10,6 +10,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+//        for carousel
+        maven { url 'https://jitpack.io' }
     }
 }
 rootProject.name = "final_201910102"
