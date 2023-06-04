@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/bottom_layout_border">
+        android:background="@drawable/map_bottom_layout_border">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/footerTopLayout"
@@ -152,7 +152,7 @@
                 android:id="@+id/footerTopImg"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:src="@drawable/find_cafe_btn_img"
+                android:src="@drawable/find_cafe_img"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

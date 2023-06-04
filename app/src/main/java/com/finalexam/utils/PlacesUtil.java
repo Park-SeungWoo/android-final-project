@@ -3,16 +3,13 @@ package com.finalexam.utils;
 import android.util.Log;
 
 import com.finalexam.BuildConfig;
-import com.finalexam.activities.MapActivity;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import noman.googleplaces.NRPlaces;
 import noman.googleplaces.Place;
-import noman.googleplaces.PlaceType;
 import noman.googleplaces.PlacesException;
 import noman.googleplaces.PlacesListener;
 
