@@ -8,12 +8,29 @@ android {
 
     defaultConfig {
         applicationId "com.finalexam"
-        minSdk 24
+        minSdk 30
         targetSdk 33
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // to hide api key, get key data from local.properties file
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file("local.properties").newDataInputStream())
+        def googleApiKey = properties.getProperty('google_api_key')
+        // if the variable in local.properties has " characters, it regards it as the value also
+        // so, the value will be "api_key" not raw api_key.
+        def googleApiKeyForManifest = properties.getProperty('google_api_key_for_manifest')
+        // set key data to the project
+        buildConfigField"String", "GOOGLE_API_KEY", googleApiKey
+        // make us use key everywhere in our project as BuildConfig.GOOGLE_API_KEY
+        manifestPlaceholders = [GOOGLE_API_KEY: googleApiKeyForManifest]
+        // make us use key in AndroidManifest.xml
+    }
+
+    buildFeatures{  // "defaultConfig contains custom BuildConfig fields, but the feature is disabled." solve this warning
+        buildConfig = true
     }
 
     buildTypes {
@@ -37,4 +54,11 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 //    for carousel
     implementation 'com.github.IslamKhSh:CardSlider:1.0.1'
+//    for google api
+    implementation 'com.google.android.gms:play-services-maps:18.0.2'
+    implementation 'com.google.android.gms:play-services-location:19.0.1'
+//    google places
+    implementation 'noman.placesapi:placesAPI:1.1.3'
+//    google direction
+    implementation 'com.google.maps.android:android-maps-utils:0.5'
 }

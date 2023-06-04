@@ -13,7 +13,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.finalexam.MainActivity;
 import com.finalexam.R;
 import com.finalexam.custom.CoffeeItem;
 import com.finalexam.custom.CoffeeItemAdaptor;
@@ -23,23 +22,37 @@ import com.github.islamkhsh.CardSliderViewPager;
 import java.util.ArrayList;
 
 public class OrderActivity extends AppCompatActivity {
+    static final int RESULT_CODE = 1004;
     CardSliderViewPager cardSliderViewPager;
     ArrayList<CoffeeItem> coffeeItems;
+
+    LinearLayout selectedListView;
+    HorizontalScrollView scrollListView;
 
     Button cntMinBtn, cntPluBtn, addTotBtn;
     ImageButton mapBtn;
     TextView cntTxt, totPriceTxt, selectedDflTxt;
-    LinearLayout selectedListView;
-    HorizontalScrollView scrollListView;
 
+    // override methods
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_coffee);
 
+        init();
+    }
+
+    @Override
+    public void onBackPressed() {  // go main page
+        finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
+
+    // utils
+    private void init(){  // initialize activity when onCreate method called
         // add carousel items
         cardSliderViewPager = findViewById(R.id.itemSlider);
-        addCoffeeItems();
+        addCoffeeItemsToCarousel();
 
         // init views
         cntMinBtn = findViewById(R.id.minusCntBtn);
@@ -60,15 +73,7 @@ public class OrderActivity extends AppCompatActivity {
         addTotBtn.setOnClickListener(new AddTotalBtnEventHandler());
         mapBtn.setOnClickListener(new MapBtnEventHandler());
     }
-
-    @Override
-    public void onBackPressed() {
-        finish();
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-    }
-
-    // utils
-    private void addCoffeeItems() {
+    private void addCoffeeItemsToCarousel() {
         coffeeItems = new ArrayList<>();
         CoffeeItem americano = new CoffeeItem("Americano", R.drawable.americano);
         CoffeeItem latte = new CoffeeItem("Cafe Latte", R.drawable.latte);
@@ -179,7 +184,8 @@ public class OrderActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             Intent goMapIntent = new Intent(OrderActivity.this, MapActivity.class);
-            startActivity(goMapIntent);  // extras에 주문정보 넘기기
+            goMapIntent.putExtra("price", totPriceTxt.getText().toString());
+            startActivityForResult(goMapIntent, RESULT_CODE);
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);  // slide animation
         }
     }

@@ -1,6 +1,8 @@
 package com.finalexam.custom;
 
-public class CoffeeItem {
+import java.io.Serializable;
+
+public class CoffeeItem implements Serializable {
     String coffeeName;
     int coffeeImg;
     int price;

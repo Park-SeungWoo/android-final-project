@@ -3,6 +3,11 @@ pluginManagement {
         google()
         mavenCentral()
         gradlePluginPortal()
+        maven {
+            url 'https://maven.google.com'
+        }
+        jcenter()
+        maven { url 'https://maven.fabric.io/public' }
     }
 }
 dependencyResolutionManagement {
@@ -12,6 +17,12 @@ dependencyResolutionManagement {
         mavenCentral()
 //        for carousel
         maven { url 'https://jitpack.io' }
+//        for places api
+        maven {
+            url 'https://maven.google.com'
+        }
+        jcenter()
+        maven { url 'https://maven.fabric.io/public' }
     }
 }
 rootProject.name = "final_201910102"
