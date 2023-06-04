@@ -9,6 +9,7 @@
     <fragment
         android:id="@+id/googleMapView"
         android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_marginBottom="170dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".activities.MapActivity" />
@@ -16,19 +17,135 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/mapFooter"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@drawable/bottom_layout_border">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/footerTopLayout"
             android:layout_width="match_parent"
-            android:layout_height="140dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/footerBottomLayout"
+            >
+
+            <TextView
+                android:id="@+id/distanceTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0 meter"
+                android:textSize="20sp"
+                android:fontFamily="@font/bazzi"
+                android:textColor="#333"
+                android:gravity="right"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/footerTopTop"
+                />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/footerTopTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/distanceTxt"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                >
+                <TextView
+                    android:id="@+id/startTimeTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="00:00 PM"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/bazzi"
+                    android:textColor="#333"
+                    android:paddingLeft="10dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/waveTxt"
+                    />
+
+                <TextView
+                    android:id="@+id/waveTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="~"
+                    android:textSize="30sp"
+                    android:fontFamily="@font/bazzi"
+                    android:textColor="#aaa"
+                    android:layout_marginHorizontal="10dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/startTimeTxt"
+                    app:layout_constraintEnd_toStartOf="@+id/endTimeTxt"
+                    />
+
+                <TextView
+                    android:id="@+id/endTimeTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="00:00 PM"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/bazzi"
+                    android:textColor="#333"
+                    android:paddingRight="10dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/separatorTxt"
+                    app:layout_constraintStart_toEndOf="@+id/waveTxt"
+                    />
+
+                <TextView
+                    android:id="@+id/separatorTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="→"
+                    android:textSize="30sp"
+                    android:fontFamily="@font/bazzi"
+                    android:textColor="#aaa"
+                    android:layout_marginHorizontal="10dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/endTimeTxt"
+                    app:layout_constraintEnd_toStartOf="@+id/durationTxt"
+                    />
+
+                <TextView
+                    android:id="@+id/durationTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0m"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/bazzi"
+                    android:textColor="#333"
+                    android:gravity="right"
+                    android:paddingRight="10dp"
+                    app:layout_constraintStart_toEndOf="@+id/separatorTxt"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/footerBottomLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:paddingHorizontal="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/footerTopLayout"
             >
 
             <ImageView

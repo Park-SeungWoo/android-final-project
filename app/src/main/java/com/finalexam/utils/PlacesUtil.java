@@ -44,7 +44,7 @@ public interface PlacesUtil extends PlacesListener{
     }
 
     @Override
-    default void onPlacesSuccess(List<Place> places) {  // paging 되어서 여러번 호출 되고 마지막에 finish 한번 호출됨
+    default void onPlacesSuccess(List<Place> places) {  // paging call. It means before finish handler call, this method could call several times.
         System.out.println("Success! finding but not done til finished");
         this.places.addAll(places);
     }
