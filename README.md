@@ -9,4 +9,4 @@
 
 # 시연 영상
 
-https://github.com/Park-SeungWoo/android-final-project/blob/main/result_captures/test_mov/test.mov
+https://github.com/Park-SeungWoo/android-final-project/assets/54872527/4ca64fad-48ff-4d5d-9d4d-a95ee78a2d16
